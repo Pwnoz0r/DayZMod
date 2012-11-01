@@ -2,69 +2,44 @@ DayZ Community Project
 =========================
 
 This is a Community Dayz project.
-This code is currently compatible with DayZ 1.7.2.6 and ArmA 2 OA beta patch build 97771.
-Now including Rajkosto Hive - Source code can be found here (https://github.com/rajkosto/hive)
 
 This would not be possible without the work of Rocket and Guru Abdul. We also use the fantastic cPBO from Kegetys (www.kegetys.fi) and wget for Windows by the GnuWin32 team (gnuwin32.sourceforge.net).
 
 **NOTE**: No support is implied or offered for pirated copies of ArmA 2.
 
-FIX : 26th OCTOBER 2012
+FIX : 31st OCTOBER 2012
 
 	Affected addons:
-		* dayz_code		1.7.2.*
-		* dayz_server 	(server admins only)
-	
-	Developer's Note: 
-		* 
-
-	Developer Changelog:
-		*
+		* dayz_code		1.7.3.*
 
 	Community Notes: 
-		* 
+		* Current Changelog not final Changelog
 
 	Community Changelog:
-	Client Side:
-		* [NEW]  Tents can no longer be placed on concrete.
-		* [FIXED]  Building checks for tent placement (No longer place tents in buildings).
-		* [FIXED]  Tents now are one click place.
-		* [FIXED]  Fixed function for checking if in buildings.
-		* [UPDATED]  Vehicle repair menus now all replaced.
-		* [NEW]  Vehicle menus now list all damaged parts no matter if you have the item or not.
-		* [NEW]  Vehicle repair menus will now let you know the exact item you need to repair on failed repair attempts.
-		* [FIXED]  Vehicle Damage is now fully working.
-		* [FIXED]  Vehicle Killed is now in effect fully destroyed vehicles will now set correct in db.
-		* [FIXED]  Tents Now add and remove from db.
-		* [FIXED]  Food can no longer be consumed if the player does not have in inventory.
-		* [FIXED]  water can no longer be consumed if the player does not have in inventory.
-		* [UPDATED]  Updated UI control bug.
-		* [NEW]  Toolbox is now needed for all repairs.
-		* [NEW]  Alt-f4 is now locked and will only open your status menu.
-		* [Fixed]  No longer possible to drink/eat/pitch a tent/put on clothes/build sand bags/cat wire/hedgehogs/consume medical supplies/free filled water without consuming the item.
-		* [FIXED]  No longer possible to create axes out of thin air if you already have one
-		* [FIXED]  Switching skins no longer repairs pain shakes/broken legs/resets/dupes/screws/resets ammo
-		* [FIXED]  Duping no longer possible through zombie corpses/etc
-		* [FIXED]  It should now be impossible for a new players spawns to spawn unconscious.
-		* [FIXED]  You can no longer cook infinite free meat from camp fires
-		* [FIXED]  Survivors should no longer pickup a single item at the same time and both receive it.
-		* [FIXED]  You can no longer generate multiple tents while packing up a deployed tent.
-		* [FIXED]  You can no longer change clothes/eat/drink/etc. while in a vehicle
-		* [NEW]  combat 30 sec timer on all combat actions.
-		* [UPDATED]  ItemWire reduced from 0.06 to 0.01
-		* [UPDATED]  PartEngine updated from 0.01 to 0.06
-		* [UPDATED]  Version info is now displayed correct
-		* [NEW]  New Combat System If you fire a weapon, then you go into combat.  During combat, "ABORT" is disabled. (Need to look at the effects with high player counts)
-		* [NEW]  Combat 30 sec timer on all combat actions.
+		Client:
+		* [NEW]		class Mi17_Civilian Now Unbanned.
+		* [NEW]		S1203_ambulance_EP1 Now Unbanned.
+		* [NEW]		UH60_wreck_EP1 Now Unbanned.
+		* [NEW]		An2_1_TK_CIV_EP1 Now Unbanned.
+		* [NEW]		An2_2_TK_CIV_EP1 Now Unbanned.
+		* [NEW]		An2_TK_EP1 Now Unbanned.
+		* [NEW]		BAF_Offroad_D Now Unbanned.
+		* [NEW]		Fully Removed Save button from action menu.
+		* [NEW]     New combat mode icon.
+		
+		* [REMOVED]	Damaged logging to .rpt.
+		
+		* [UPDATED]	Combat Loging Fired near checks are now limited to 15m radius.
+		* [UPDATED]	Corrected legs and hands fractures they must be set with actual value.
 
-	Server.pbo:
-		* [NEW] HiveEXT.dll now replaced with our new version.
-		* [NEW] Official Hive login is now hard coded into the .dll
-		* [NEW] New Hive can now set ingame time to custom, local(local server time), static
-		* [FIXED]  Object Gear syncs happen based on radius not just on menu.
-		* [FIXED]  Vehicle Position is now updated with client position.
-		* [FIXED]  Vehicles save fuel properly
+		* [Fixed]	Adding checks for female skin humanity/login.
+		* [Fixed]	Adding female skin to variables.
+		* [Fixed]	Fixed Parachute so jumping out of choppers wont kill you.
+		* [Fixed]	Event Handle for wrecked choppers.
+		* [Fixed]	Event Handle for Vehicles.
+		* [Fixed]	Remove objects from DB by objectID and objectUID only. (Should fix Deployable problems)
 
+		
 
 Prerequisites
 =============

@@ -69,6 +69,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		s_player_deleteBuild = -1;
 	};
 	
+	/*
 	//Allow player to force save
 	if((_isVehicle or _isTent) and _canDo and !_isMan) then {
 		if (s_player_forceSave < 0) then {
@@ -78,6 +79,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		player removeAction s_player_forceSave;
 		s_player_forceSave = -1;
 	};
+	*/
 	
 	//Allow player to fill jerrycan
 	if(_hasFuelE and _isFuel and _canDo) then {
