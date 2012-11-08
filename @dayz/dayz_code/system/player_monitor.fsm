@@ -114,8 +114,13 @@ link56[] = {49,50};
 link57[] = {50,49};
 link58[] = {51,52};
 link59[] = {52,29};
+<<<<<<< HEAD
 globals[] = {25.000000,1,0,0,0,640,480,1,81,6316128,1,-454.478333,468.883942,1080.962280,499.872528,955,601,1};
 window[] = {2,-1,-1,-1,-1,846,66,1037,66,3,972};
+=======
+globals[] = {25.000000,1,0,0,0,640,480,1,81,6316128,1,-440.765930,455.171539,1392.221191,828.390381,955,601,1};
+window[] = {2,-1,-1,-1,-1,934,154,1125,154,3,972};
+>>>>>>> 9c93e6a9fb518e4860076d65610ce7d7b7826692
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -557,6 +562,7 @@ class FSM
        "dayz_playerName = name player;" \n
        "_model call player_switchModel;" \n
        "" \n
+       "player allowDamage false;" \n
        "_lastAte = _survival select 1;" \n
        "_lastDrank = _survival select 2;" \n
        "" \n
@@ -928,7 +934,11 @@ class FSM
        "player disableConversation true;" \n
        "" \n
        "eh_player_killed = player addeventhandler [""FiredNear"",{_this call player_weaponFiredNear;} ];" \n
+<<<<<<< HEAD
        "_eh_combat_projectilenear = player addEventHandler [""IncomingFire"" {_this call player_projectileNear;}];" \n
+=======
+       "//_eh_combat_projectilenear = player addEventHandler [""IncomingFire"",{_this call player_projectileNear;}];" \n
+>>>>>>> 9c93e6a9fb518e4860076d65610ce7d7b7826692
        "" \n
        "//Select Weapon" \n
        "// Desc: select default weapon & handle multiple muzzles" \n
@@ -1061,9 +1071,12 @@ class FSM
        "dayz_slowCheck = 	[] spawn player_spawn_2;" \n
        "" \n
        "_world = toUpper(worldName); //toUpper(getText (configFile >> ""CfgWorlds"" >> (worldName) >> ""description""));" \n
-       "_nearestCity = (nearestLocations [getPos player, [""NameCityCapital"",""NameCity"",""NameVillage"",""NameLocal""],1000] select 0);" \n
+       "_nearestCity = nearestLocations [getPos player, [""NameCityCapital"",""NameCity"",""NameVillage"",""NameLocal""],1000];" \n
        "_town = ""Wilderness"";" \n
-       "if (!isNull _nearestCity) then {_town = text _nearestCity};" \n
+       "" \n
+       "diag_log (""NearestCity"" + str(_nearestCity));" \n
+       "" \n
+       "if (count _nearestCity > 0) then {_town = text (_nearestCity select 0)};" \n
        "" \n
        "_strTime = call curTimeStr;" \n
        "_strDate = date;" \n

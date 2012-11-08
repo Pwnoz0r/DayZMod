@@ -153,6 +153,18 @@ server_getDiff2 =	{
 	_result
 };
 
+<<<<<<< HEAD
+=======
+dayz_objectUID = {
+	private["_position","_dir","_key","_object"];
+	_object = _this;
+	_position = getPosATL _object;
+	_dir = direction _object;
+	_key = [_dir,_position] call dayz_objectUID2;
+    	_key
+};
+
+>>>>>>> 9c93e6a9fb518e4860076d65610ce7d7b7826692
 dayz_objectUID2 = {
 	private["_position","_dir","_key"];
 	_dir = _this select 0;

@@ -51,6 +51,11 @@ if (count _medical > 0) then {
 	
 	//Add fractures
 	_fractures = (_medical select 9);
+<<<<<<< HEAD
+=======
+//	player setVariable ["hit_legs",(_fractures select 0),true];
+//	player setVariable ["hit_hands",(_fractures select 1),true];
+>>>>>>> 9c93e6a9fb518e4860076d65610ce7d7b7826692
 	[player,"legs", (_fractures select 0)] call object_setHit;
 	[player,"hands", (_fractures select 1)] call object_setHit;
 } else {
@@ -82,7 +87,11 @@ call dayz_resetSelfActions;
 eh_player_killed = player addeventhandler ["FiredNear",{_this call player_weaponFiredNear;} ];
 
 //Combat logging
+<<<<<<< HEAD
 _eh_combat_projectilenear = player addEventHandler ["IncomingFire" {_this call player_projectileNear;}];
+=======
+_eh_combat_projectilenear = player addEventHandler ["IncomingFire",{_this call player_projectileNear;}];
+>>>>>>> 9c93e6a9fb518e4860076d65610ce7d7b7826692
 //
 [player] call fnc_usec_damageHandle;
 player allowDamage true;

@@ -21,10 +21,20 @@ private["_unit","_magazine","_used","_quantity","_magsNet","_magsWhole","_key","
 	
 	// Both the firer and those nearby (<=15m) go into "combat" to prevent ALT-F4
 	_firer setVariable["startcombattimer", 1, true];
+<<<<<<< HEAD
 	if ((_isPlayer) and (_distance <= "15")) then {
 		_unit setVariable["startcombattimer", 1, true];
 	};
 
+=======
+	_listNear = _firer nearEntities [["CAManBase","AllVehicles"],15];
+	{
+		if (_isPlayer) then {
+			_unit setVariable["startcombattimer", 1, true];
+		};
+	} forEach _listNear;
+	
+>>>>>>> 9c93e6a9fb518e4860076d65610ce7d7b7826692
 	if (_inVehicle) exitWith{};
 	if (_firer == player) exitWith{};
 	

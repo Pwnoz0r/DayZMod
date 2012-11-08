@@ -46,6 +46,7 @@ if (!isDedicated) then {
 	player_alertZombies = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_alertZombies.sqf";
 	player_fireMonitor = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\system\fire_monitor.sqf";
 	//player_combatLogged =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_combatLogged.sqf";
+	player_tameDog = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_tameDog.sqf";
 
 	//Objects
 	object_roadFlare = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\object_roadFlare.sqf";
@@ -90,6 +91,22 @@ if (!isDedicated) then {
 	onPreloadStarted 			"dayz_preloadFinished = false;";
 	onPreloadFinished 			"dayz_preloadFinished = true;";
 	
+	// TODO: need move it in player_monitor.fsm
+	// allow player disconnect from server, if loading hang, kicked by BE etc.
+	[] spawn {
+		private["_timeOut"];
+		_timeOut = 0;
+		while { _timeOut < 90 } do {
+			_timeOut = _timeOut + 1;
+			sleep 1;
+		};
+		if ( !dayz_preloadFinished ) then {
+			endLoadingScreen;
+			disableUserInput false;
+			cutText ["Something went wrong! disconnect and try again!", "BLACK OUT",1];
+			player enableSimulation false;
+		};
+	}; 
 	dayz_losChance = {
 		private["_agent","_maxDis","_dis","_val","_maxExp","_myExp"];
 		_agent = 	_this select 0;
@@ -104,7 +121,7 @@ if (!isDedicated) then {
 	};
 	
 	ui_initDisplay = {
-		private["_control","_ctrlBleed","_display","_ctrlFracture"];
+		private["_control","_ctrlBleed","_display","_ctrlFracture","_ctrlDogFood","_ctrlDogWater","_ctrlDogWaterBorder", "_ctrlDogFoodBorder"];
 		disableSerialization;
 		_display = uiNamespace getVariable 'DAYZ_GUI_display';
 		_control = 	_display displayCtrl 1204;
@@ -117,6 +134,15 @@ if (!isDedicated) then {
 			_ctrlFracture = 	_display displayCtrl 1203;
 			_ctrlFracture ctrlShow false;
 		};
+		_ctrlDogFoodBorder = _display displayCtrl 1501;
+		_ctrlDogFoodBorder ctrlShow false;
+		_ctrlDogFood = _display displayCtrl 1701;
+		_ctrlDogFood ctrlShow false;
+		
+		_ctrlDogWaterBorder = _display displayCtrl 1502;
+		_ctrlDogWaterBorder ctrlShow false;
+		_ctrlDogWater = _display displayCtrl 1702;
+		_ctrlDogWater ctrlShow false
 	};
 	
 	dayz_losCheck = {
@@ -262,7 +288,8 @@ if (!isDedicated) then {
 			_control ctrlShow false;
 			_control ctrlCommit 0;
 		};
-	};
+	}; 
+	
 
 	gear_ui_init = {
 		private["_control","_parent","_menu","_dspl","_grpPos"];
@@ -371,7 +398,7 @@ if (isServer) then {
 	world_isDay = 				{if ((daytime < (24 - dayz_sunRise)) and (daytime > dayz_sunRise)) then {true} else {false}};
 	player_humanityChange =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_humanityChange.sqf";
 	spawn_loot =				compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\spawn_loot.sqf";
-	//player_projectileNear = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_projectileNear.sqf";
+	player_projectileNear = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_projectileNear.sqf";
 	
 	player_sumMedical = {
 		private["_character","_wounds","_legs","_arms","_medical"];

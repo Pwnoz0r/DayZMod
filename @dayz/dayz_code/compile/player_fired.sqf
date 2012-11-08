@@ -13,7 +13,7 @@ _distance = round(_audible * 10 * _caliber);
 dayz_disAudial = _distance;
 dayz_firedCooldown = time;
 // Put everyone in range of the bullet into combat
-//_id = _this spawn player_projectileNear;
+_id = _this spawn player_projectileNear;
 // Color in the combat icon
 dayz_combat = 1;
 if (_ammo isKindOf "Melee") exitWith {

@@ -4,6 +4,10 @@ DayZ Community Developers
 
 * AJ (Leadz)
 * Alakakala
+<<<<<<< HEAD
+=======
+* Alexander (G17 incombat Icon)
+>>>>>>> 9c93e6a9fb518e4860076d65610ce7d7b7826692
 * Alby
 * Ander
 * Dean 'Rocket' Hall

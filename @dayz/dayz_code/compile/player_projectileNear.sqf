@@ -4,6 +4,7 @@ _shooter =         _this select 1;
 _ammo =         _this select 2;
 _distance =        _this select 3;
 _position =        _this select 4;
+<<<<<<< HEAD
 
 _isInComat = _unit getVariable["startcombattimer",0];
 
@@ -26,3 +27,31 @@ _listNear = (_endPos) nearEntities [["CAManBase","AllVehicles"],50];
 		} forEach (crew _nearVehicle);
 	};
 } forEach _listNear;
+=======
+_projectile = 	_this select 6;
+
+_isInComat = _unit getVariable["startcombattimer",0];
+
+// track the projectile with the marker while its alive, (bullets die on impact).
+while {!alive _projectile} do {
+	_listNear = _unit nearEntities [["CAManBase","AllVehicles"],15];
+	{
+		_nearVehicle = _x;
+		_isInCombat = _nearVehicle getVariable["startcombattimer",0];
+
+		if ((alive _unit) and (isPlayer _unit) and _isInCombat == 0) then {
+			_unit setVariable["startcombattimer", 1, true];
+			diag_log("Now in Combat (Player): " + name _unit);
+		};
+		if (_nearVehicle isKindOf "AllVehicles") then {
+			{
+				_isInCombat = _x getVariable["startcombattimer",0];
+				if (isPlayer _x and _isInCombat == 0) then {
+					_x setVariable["startcombattimer", 1, true];
+					diag_log("Now in Combat (Crew): " + name _x);
+				};
+			} forEach (crew _nearVehicle);
+		};
+	} forEach _listNear;
+};
+>>>>>>> 9c93e6a9fb518e4860076d65610ce7d7b7826692

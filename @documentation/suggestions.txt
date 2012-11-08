@@ -1,3 +1,0 @@
-Change bandit skin to have more variety. Each bandit skin change, >2500 >5000 >7500, etc. Same goes with the hero skins. ~Pwnoz0r
-Aim towards having the debug removed completly. ~Pwnoz0r
-(Intertwined with 2)Instead of having humanity as a number on the debug monitor, have it use the pictures the status of your humanity. ~Pwnoz0r
